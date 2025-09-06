@@ -42,3 +42,12 @@ nav a {
     justify-content: center;
     gap: 1 rem;
 }
+
+#start-btn {
+    background: #f7d3d3;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
