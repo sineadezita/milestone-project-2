@@ -51,3 +51,50 @@ nav a {
     cursor: pointer;
     font-weight: bold;
 }
+
+.toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle .slider {
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle .slider::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: 0.3s;
+}
+
+.toggle input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+.toggle input:checked + .slider {
+    background: #a6e3a1;
+}
+
+.note {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+
+
