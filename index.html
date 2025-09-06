@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
     <!-- Header -->
@@ -22,29 +25,51 @@
         <p>Start with €10,000. Buy and sell luxury fashion stocks to grow your portfolio.</p>
         <div class="controls">
             <button id="start-btn">Start Game</button>
+
+            <!-- Toggle for live prices -->
             <label class="toggle">
                 <input type="checkbox" id="live-toggle">
-                <span class="slider"></span> Live Prices
+                <span class="slider"></span> 
+                Live Prices
             </label>
         </div>
     </section>
 
     <!-- Game Section -->
     <main id="game" class="hidden">
+        
         <!-- Market -->
         <section class="card" id="market">
             <h2>Market</h2>
-            <div id="stock-list"></div>
+            <div id="stock-list">
+
+            <!-- Example Stock Row -->
+            <div class="stock">
+                <span>Gucci</span>
+                <span>€520.00</span>
+                <button class="buy">Buy</button>
+                <button class="sell">Sell</button>
+            </div>
+            <div class="stock">
+                <span>Prada</span>
+                <span>€480.00</span>
+                <button class="buy">Buy</button>
+                <button class="sell">Sell</button>
+            </div>
+            </div>
         </section>
     
-    <!-- Portfolio -->
-    <section class="card" id="portfolio">
-        <h2>Portfolio</h2>
-        <p><strong>Balance:</strong> €<span id="balance">10000</span></p>
-        <ul id="holdings"></ul>
-    </section>
+        <!-- Portfolio -->
+        <section class="card" id="portfolio">
+            <h2>Portfolio</h2>
+            <p><strong>Balance:</strong> €<span id="balance">10000</span></p>
+            <ul id="holdings">
+                <li>Gucci x2: €1040</li>
+            </ul>
+        </section>
     </main>
 
+    <!-- Javascript -->
     <script src="assets/script.js"></script>
 </body>
 </html>
