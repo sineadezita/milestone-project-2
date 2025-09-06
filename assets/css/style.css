@@ -96,5 +96,25 @@ nav a {
     color: #777;
 }
 
+/* Game Layout */
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fdeef1;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
 
 
