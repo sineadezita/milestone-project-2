@@ -7,6 +7,44 @@
     <link ref="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <h1>Fashion Stock Picker</h1>
+            <a href="#portfolio">Portfolio</a>
+        </nav>
+    </header>
+
+    <!-- Landing Page -->
+    <section id="landing">
+        <h2>Can you beat the luxury market?</h2>
+        <p>Start with €10,000. Buy and sell luxury fashion stocks to grow your portfolio.</p>
+        <div class="controls">
+            <button id="start-btn">Start Game</button>
+            <label class="toggle">
+                <input type="checkbox" id="live-toggle">
+                <span class="slider"></span> Live Prices
+            </label>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <main id="game" class="hidden">
+        <!-- Market -->
+        <section class="card" id="market">
+            <h2>Market</h2>
+            <div id="stock-list"></div>
+        </section>
     
+    <!-- Portfolio -->
+    <section class="card" id="portfolio">
+        <h2>Portfolio</h2>
+        <p><strong>Balance:</strong> €<span id="balance">10000</span></p>
+        <ul id="holdings"></ul>
+    </section>
+    </main>
+
+    <script src="assets/script.js"></script>
 </body>
 </html>
