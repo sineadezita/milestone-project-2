@@ -4,3 +4,9 @@ const stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
 
 const gameSection = document.getELementById("game");
 const startBtn = document.getElementById("start-btn");
+
+// Start game button
+startBtn.addEventListener("click", () => {
+    document.getElementById("landing").classList.add("hidden");
+    gameSection.classList.remove("hidden");
+});
