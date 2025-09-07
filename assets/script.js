@@ -12,7 +12,6 @@ startBtn.addEventListener("click", () => {
 });
 
 // Display stock list
-
 function renderStocks() {
     const stockList = document.getElementById("stock-list");
     stockList.innerHTML = "";
@@ -31,7 +30,6 @@ function renderStocks() {
 }
 
 // Update portfolio
-
 function updatePortfolio() {
     document.getElementById("balance").textContent = balance.toFixed(2);
     const holdingsList = document.getElementById("holdings");
@@ -40,6 +38,17 @@ function updatePortfolio() {
         let li = document.createElement("li");
         li.textContent = `${stock}: ${portfolio[stock]} shares`;
         holdingsList.appendChild(li);
+    }
+}
+
+// Buy & Sell 
+function buyStock(name) {
+    if (balance >= stocks[name]) {
+        balance -= stocks[name];
+        portfolio[name]++;
+        updatePortfolio();
+    } else {
+        alert("Not enough balance to buy " + name);
     }
 }
 
