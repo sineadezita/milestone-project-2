@@ -2,7 +2,7 @@ let balance = 10000;
 let portfolio = { LVMH: 0, Prada: 0, Burberry: 0 };
 const stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
 
-const gameSection = document.getELementById("game");
+const gameSection = document.getElementById("game");
 const startBtn = document.getElementById("start-btn");
 
 // Start game button
@@ -54,9 +54,9 @@ function buyStock(name) {
 
 // Sell Stock
 function sellStock(name) {
-    if (balance >= stocks[name]) {
-        balance -= stocks[name];
-        portfolio[name]++;
+    if (portfolio[name] > 0) {
+        balance += stocks[name];
+        portfolio[name]--;
         updatePortfolio();
     } else {
         alert("No shares of " + name + " to sell");
