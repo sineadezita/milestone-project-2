@@ -11,21 +11,37 @@ startBtn.addEventListener("click", () => {
     gameSection.classList.remove("hidden");
 });
 
-// Render stock list
+// Display stock list
 
 function renderStocks() {
-    const stockList = document.getELementById("stock-list");
+    const stockList = document.getElementById("stock-list");
     stockList.innerHTML = "";
     for (let name in stocks) {
         let div = document.createElement("div");
         div.className = "stock";
         div.innerHTML = `
-        <span>${name} €${stocks[name].toFixed(2)}</span>
-        <div>
-            <button class="buy" onclick="buyStock"('${name}')">Buy</button>
-            <button class="sell" onclick="sellStock"('${name}')">Sell</button>
-        </div>
+            <span>${name} €${stocks[name].toFixed(2)}</span>
+            <div>
+                <button class="buy" onclick="buyStock('${name}')">Buy</button>
+                <button class="sell" onclick="sellStock('${name}')">Sell</button>
+            </div>
         `;
+        stockList.appendChild(div);  
     }
 }
+
+// Update portfolio
+
+function updatePortfolio() {
+    document.getElementById("balance").textContent = balance.toFixed(2);
+    const holdingsList = document.getElementById("holdings");
+    holdingsList.innerHTML = "";
+    for (let stock in portfolio) {
+        let li = document.createElement("li");
+        li.textContent = `${stock}: ${portfolio[stock]} shares`;
+        holdingsList.appendChild(li);
+    }
+}
+
+
 
