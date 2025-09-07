@@ -41,7 +41,7 @@ function updatePortfolio() {
     }
 }
 
-// Buy & Sell 
+// Buy Stock
 function buyStock(name) {
     if (balance >= stocks[name]) {
         balance -= stocks[name];
@@ -49,6 +49,17 @@ function buyStock(name) {
         updatePortfolio();
     } else {
         alert("Not enough balance to buy " + name);
+    }
+}
+
+// Sell Stock
+function sellStock(name) {
+    if (balance >= stocks[name]) {
+        balance -= stocks[name];
+        portfolio[name]++;
+        updatePortfolio();
+    } else {
+        alert("No shares of " + name + " to sell");
     }
 }
 
