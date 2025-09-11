@@ -205,9 +205,19 @@ button.sell:hover {
     padding: 0.8rem 1.2rem;
     margin: 0.5rem 0;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     font-size: 0.95rem;
+}
+
+/* Value badge inside portfolio */
+#portfolio li span.value {
+    background: #fde6eb;
+    color:#4a2c2a;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 /* Footer */

@@ -40,9 +40,12 @@ function updatePortfolio() {
     const holdingsList = document.getElementById("holdings");
     holdingsList.innerHTML = "";
     for (let stock in portfolio) {
+        if (portfolio[stock] > 0) { //only shows stocks you own
         let li = document.createElement("li");
-        li.textContent = `${stock}: ${portfolio[stock]} shares`;
+        li.innerHTML = `${stock}: ${portfolio[stock]} shares
+        <span class="value">€${(portfolio[stock] * stocks[stock]).toFixed(2)}</span>`;
         holdingsList.appendChild(li);
+        }
     }
 }
 
