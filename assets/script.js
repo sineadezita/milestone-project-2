@@ -2,13 +2,18 @@ let balance = 10000;
 let portfolio = { LVMH: 0, Prada: 0, Burberry: 0 };
 const stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
 
+let liveInterval = null; //for live updates
+
 const gameSection = document.getElementById("game");
 const startBtn = document.getElementById("start-btn");
+const liveToggle = document.getElementById("live-toggle");
 
 // Start game button
 startBtn.addEventListener("click", () => {
     document.getElementById("landing").classList.add("hidden");
     gameSection.classList.remove("hidden");
+    renderStocks();
+    updatePortfolio();
 });
 
 // Display stock list
@@ -62,6 +67,3 @@ function sellStock(name) {
         alert("No shares of " + name + " to sell");
     }
 }
-
-
-
