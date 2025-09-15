@@ -11,6 +11,10 @@ body {
     flex-direction: column;
 }
 
+main {
+    flex: 1;
+}
+
 .hidder {
     display: none !important;
 }
@@ -223,13 +227,58 @@ button.sell:hover {
 /* Footer */
 footer {
     background: #fde6eb;
-    color: #4a2c2a;
-    text-align: center;
+    color: #fff;
     padding: 1rem;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+    margin-top: auto;
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+/* Text */
 footer p {
-    margin: 0;
+    margin: 0.5rem 0;
+}
+
+/* Social Networks */
+#social-networks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+}
+
+#social-network li a {
+    color: #fff;
+    font-family: 1.6rem;
+    transition: color 0.3s ease;
+}
+
+#social-networks li a:hover {
+    color: #f7d3d3;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #social-networks {
+        gap: 1rem;
+        font-size: 1.4rem;
+    }
 }
