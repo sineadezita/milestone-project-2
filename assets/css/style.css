@@ -257,14 +257,18 @@ footer p {
     padding: 0;
 }
 
-#social-network li a {
+#social-network li a, #social-networks li a i {
     color: #fff;
     font-family: 1.6rem;
     transition: color 0.3s ease;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-#social-networks li a:hover {
+#social-networks li a:hover,
+#social-networks li a:hover i {
     color: #f7d3d3;
+    transform: scale(1.2);
 }
 
 /* Media Queries */
