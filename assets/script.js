@@ -105,3 +105,9 @@ function updatePrices() {
     renderStocks();
     updatePortfolio();
 }
+
+// Start live updates
+function startLiveMarket () {
+    if (liveInterval) clearInterval(liveINterval);
+    liveInterval = setInterval(updatePrices, 5000);
+}
