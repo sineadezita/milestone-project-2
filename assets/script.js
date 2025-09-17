@@ -71,8 +71,6 @@ function updatePortfolio() {
             <span class="value">€${portfolioValue.toFixed(2)}</span>`;
         holdingsList.appendChild(totalLi);
     }
-
-
 }
 
 // Buy Stock
@@ -95,4 +93,15 @@ function sellStock(name) {
     } else {
         alert("No shares of " + name + " to sell");
     }
+}
+
+// Fake stock market simulator
+function updatePrices() {
+    for (let name in stocks) {
+        let changePercent = (Math.random() - 0.5) * 0.04;
+        stocks[name] *= (1 + changePercent);
+        if (stocks[name] < 10)stocks[name] = 10;
+    }
+    renderStocks();
+    updatePortfolio();
 }
