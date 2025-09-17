@@ -54,11 +54,12 @@ function updatePortfolio() {
         totalValue += currentValue;
 
         let li = document.createElement("li");
-        let stockValue = portfolio[stock] * stocks[stock];
-        portfolioValue += stockValue; 
-
         li.innerHTML = `${stock}: ${portfolio[stock]} shares
-        <span class="value">€${(portfolio[stock] * stocks[stock]).toFixed(2)}</span>`;
+        <span class="value">€${(portfolio[stock] * stocks[stock]).toFixed(2)}</span>
+        <span class="pl" style="color:${profitLoss >= 0 ? 'green' : 'red'}">
+            (${profitLoss >= 0 ? '+' : ''}€${profitLoss.toFixed(2)})
+        </span>
+        `;
         holdingsList.appendChild(li);
         }
     }
