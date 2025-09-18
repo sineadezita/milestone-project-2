@@ -1,5 +1,9 @@
 let balance = 10000;
-let portfolio = { LVMH: 0, Prada: 0, Burberry: 0 };
+let portfolio = { 
+    LVMH: { shares : 0, avgPrice : 0 }
+    Prada: { shares : 0, avgPrice : 0 }
+    Burberry: { shares : 0, avgPrice : 0 } 
+};
 const stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
 
 let liveInterval = null; //for live updates
@@ -17,6 +21,7 @@ startBtn.addEventListener("click", () => {
     gameSection.classList.remove("hidden");
     renderStocks();
     updatePortfolio();
+    startLiveMarket();
 });
 
 // Display stock list
@@ -49,7 +54,7 @@ function updatePortfolio() {
     for (let stock in portfolio) {
         if (portfolio[stock].shares > 0) {
         let currentValue = portfolio[stock].shares * stocks[stock];
-        let costBasis = portfolio[stock].shares * portfolio[stock].avgPrics;
+        let costBasis = portfolio[stock].shares * portfolio[stock].avgPrice;
         let profitLoss = currentValue - costBasis;
         totalValue += currentValue;
 
@@ -65,7 +70,7 @@ function updatePortfolio() {
     }
 
     //Add totals
-    if (portfolioValue > 0) {
+    if (totalValue > 0) {
         let totalLi = document.createElement("li");
         totalLi.innerHTML = `<strong>Total Portfolio</strong>
             <span class="value">€${portfolioValue.toFixed(2)}</span>`;
@@ -108,6 +113,22 @@ function updatePrices() {
 
 // Start live updates
 function startLiveMarket () {
-    if (liveInterval) clearInterval(liveINterval);
+    if (liveInterval) clearInterval(liveInterval);
     liveInterval = setInterval(updatePrices, 5000);
+}
+
+// Level system
+function checkLevelUp() {
+    if (currentLevel === 1 && portfolioValue >= startingBalance * 1.06) {
+        alert("Congratulations! You unlocked level 2 with €20000 to invest!");
+
+        // Reset for level 2
+        currentLevel = 2;
+        balance = 20000;
+        startingBalance = 20000;
+        portfolio = {};
+        stocks = { Gucci: 140.3, Chanel: 980.6, Hermes: 1856.3, Moncler: 78.4, Cartier: 226.4 };
+        renderStocks();
+        updatePortfolio();
+    }
 }
