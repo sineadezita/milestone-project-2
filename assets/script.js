@@ -73,7 +73,7 @@ function updatePortfolio() {
     if (totalValue > 0) {
         let totalLi = document.createElement("li");
         totalLi.innerHTML = `<strong>Total Portfolio</strong>
-            <span class="value">€${portfolioValue.toFixed(2)}</span>`;
+            <span class="value">€${totalValue.toFixed(2)}</span>`;
         holdingsList.appendChild(totalLi);
     }
 }
