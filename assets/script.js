@@ -1,14 +1,15 @@
 let balance = 10000;
+let startingBalance = 10000;
+let currentLevel = 1;
+
 let portfolio = { 
     LVMH: { shares : 0, avgPrice : 0 }
     Prada: { shares : 0, avgPrice : 0 }
     Burberry: { shares : 0, avgPrice : 0 } 
 };
-const stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
+let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
 
 let liveInterval = null; //for live updates
-let startingBalance = 10000;
-let currentLevel = 1;
 
 // Dom Elemants
 const gameSection = document.getElementById("game");
@@ -49,25 +50,29 @@ function updatePortfolio() {
 
     const holdingsList = document.getElementById("holdings");
     holdingsList.innerHTML = "";
-    let totalValue = balance;
+    let totalValue = balance; // cash and holdings
 
     for (let stock in portfolio) {
-        if (portfolio[stock].shares > 0) {
-        let currentValue = portfolio[stock].shares * stocks[stock];
-        let costBasis = portfolio[stock].shares * portfolio[stock].avgPrice;
-        let profitLoss = currentValue - costBasis;
-        totalValue += currentValue;
+        let { shares, avgPrice } = shares * stocks[stock];
+        if (shares > 0) {
+            // Current value of this stock
+            let currentValue = shares * stocks[stock];
+            // What was originally paid
+            let costBasis = shares * avgPrice;
+            // Profit/Loss
+            let profitLoss = currentValue - costBasis;
+            totalValue += currentValue;
 
-        let li = document.createElement("li");
-        li.innerHTML = `${stock}: ${portfolio[stock]} shares
-        <span class="value">€${(portfolio[stock] * stocks[stock]).toFixed(2)}</span>
-        <span class="pl" style="color:${profitLoss >= 0 ? 'green' : 'red'}">
-            (${profitLoss >= 0 ? '+' : ''}€${profitLoss.toFixed(2)})
-        </span>
-        `;
-        holdingsList.appendChild(li);
+            let li = document.createElement("li");
+            li.innerHTML = `${stock}: ${shares} shares
+                <span class="value">€${currentValue.toFixed(2)}</span>
+                <span class="pl" style="color:${profitLoss >= 0 ? 'green' : 'red'}">
+                    (${profitLoss >= 0 ? '+' : ''}€${profitLoss.toFixed(2)})
+                </span>
+            `;
+            holdingsList.appendChild(li);
+            }
         }
-    }
 
     //Add totals
     if (totalValue > 0) {
