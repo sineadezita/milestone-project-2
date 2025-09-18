@@ -5,9 +5,11 @@ let currentLevel = 1;
 let portfolio = { 
     LVMH: { shares : 0, avgPrice : 0 },
     Prada: { shares : 0, avgPrice : 0 },
-    Burberry: { shares : 0, avgPrice : 0 }
+    Burberry: { shares : 0, avgPrice : 0 },
+    Missoni: { shares : 0, avgPrice : 0 },
+    Tiffany: { shares : 0, avgPrice : 0 }
 };
-let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, };
+let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, Missoni: 45.67, Tiffany: 70.63 };
 
 let liveInterval = null; //for live updates
 
@@ -75,14 +77,15 @@ function updatePortfolio() {
             }
         }
 
-    //Add totals
-    if (totalValue > 0) {
-        let totalLi = document.createElement("li");
-        totalLi.innerHTML = `<strong>Total Portfolio</strong>
-            <span class="value">€${totalValue.toFixed(2)}</span>`;
-        holdingsList.appendChild(totalLi);
+    // Add totals (always show total portfolio value = cash + holdings)
+    let totalLi = document.createElement("li");
+    totalLi.innerHTML = `<strong>Total Portfolio</strong>
+        <span class="value">€${totalValue.toFixed(2)}</span>`;
+    holdingsList.appendChild(totalLi);
+
+    // Check for level-up (pass totalValue to the function)
+    checkLevelUp(totalValue);
     }
-}
 
 // Buy Stock
 function buyStock(name) {
