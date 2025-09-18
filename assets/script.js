@@ -3,11 +3,11 @@ let startingBalance = 10000;
 let currentLevel = 1;
 
 let portfolio = { 
-    LVMH: { shares : 0, avgPrice : 0 }
-    Prada: { shares : 0, avgPrice : 0 }
-    Burberry: { shares : 0, avgPrice : 0 } 
+    LVMH: { shares : 0, avgPrice : 0 },
+    Prada: { shares : 0, avgPrice : 0 },
+    Burberry: { shares : 0, avgPrice : 0 }
 };
-let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4 };
+let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, };
 
 let liveInterval = null; //for live updates
 
@@ -51,9 +51,10 @@ function updatePortfolio() {
     const holdingsList = document.getElementById("holdings");
     holdingsList.innerHTML = "";
     let totalValue = balance; // cash and holdings
-
+    
+    // Loop through each stock in the portfolio
     for (let stock in portfolio) {
-        let { shares, avgPrice } = shares * stocks[stock];
+        let { shares, avgPrice } = portfolio[stock];
         if (shares > 0) {
             // Current value of this stock
             let currentValue = shares * stocks[stock];
@@ -85,9 +86,21 @@ function updatePortfolio() {
 
 // Buy Stock
 function buyStock(name) {
+    let price = stocks[name];
     if (balance >= stocks[name]) {
         balance -= stocks[name];
-        portfolio[name]++;
+
+        // Update shares
+        let stockData = portfolio[name];
+        let totalCost = stockData.shares * stockData.avgPrice + price;
+        let newShares = stockData.shares + 1;
+        let newAvgPrice = totalCost / newShares;
+
+        portfolio[name] = {
+            shares: newShares,
+            avgPrice: newAvgPrice
+        };
+
         updatePortfolio();
     } else {
         alert("Not enough balance to buy " + name);
@@ -96,9 +109,18 @@ function buyStock(name) {
 
 // Sell Stock
 function sellStock(name) {
-    if (portfolio[name] > 0) {
-        balance += stocks[name];
-        portfolio[name]--;
+    let stockData = portfolio[name];
+    if (stockData.shares > 0) {
+        let price = stocks[name];
+        balance += price;
+        stockData.shares -= 1;
+
+        // If no shares left, reset avgPrice
+        if (stockData.shares === 0) {
+            stockData.avgPrice = 0;
+        }
+
+        portfolio[name] = stockData;
         updatePortfolio();
     } else {
         alert("No shares of " + name + " to sell");
@@ -123,7 +145,7 @@ function startLiveMarket () {
 }
 
 // Level system
-function checkLevelUp() {
+function checkLevelUp(totalValue) {
     if (currentLevel === 1 && totalValue >= startingBalance * 1.06) {
         alert("Congratulations! You unlocked level 2 with €20000 to invest!");
 
@@ -131,7 +153,13 @@ function checkLevelUp() {
         currentLevel = 2;
         balance = 20000;
         startingBalance = 20000;
-        portfolio = {};
+        portfolio = {
+            Gucci: { shares: 0, avgPrice: 0 },
+            Chanel: { shares: 0, avgPrice: 0 },
+            Hermes: { shares: 0, avgPrice: 0 },
+            Moncler: { shares: 0, avgPrice: 0 },
+            Cartier: { shares: 0, avgPrice: 0 },
+        };
         stocks = { Gucci: 140.3, Chanel: 980.6, Hermes: 1856.3, Moncler: 78.4, Cartier: 226.4 };
         renderStocks();
         updatePortfolio();
