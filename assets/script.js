@@ -119,7 +119,7 @@ function startLiveMarket () {
 
 // Level system
 function checkLevelUp() {
-    if (currentLevel === 1 && portfolioValue >= startingBalance * 1.06) {
+    if (currentLevel === 1 && totalValue >= startingBalance * 1.06) {
         alert("Congratulations! You unlocked level 2 with €20000 to invest!");
 
         // Reset for level 2
