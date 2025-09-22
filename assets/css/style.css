@@ -228,32 +228,31 @@ button.sell:hover {
 footer {
     background: #fde6eb;
     color: #fff;
-    padding: 1rem;
+    padding: 1rem 0;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    margin-top: auto;
 }
 
 .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    align-items: center;
 }
 
 /* Text */
 footer p {
-    margin: 0.5rem 0;
+    margin: 0;
 }
 
 /* Social Networks */
 #social-networks {
     display: flex;
-    justify-content: center;
     gap: 1.5rem;
     list-style: none;
-    margin: 0.5rem 0 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -269,20 +268,4 @@ footer p {
 #social-networks li a:hover i {
     color: #f7d3d3;
     transform: scale(1.2);
-}
-
-/* Media Queries */
-@media (min-width: 768px) {
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    #social-networks {
-        gap: 1rem;
-        font-size: 1.4rem;
-    }
 }

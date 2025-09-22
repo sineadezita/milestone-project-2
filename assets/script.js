@@ -9,7 +9,7 @@ let portfolio = {
     Missoni: { shares : 0, avgPrice : 0 },
     Tiffany: { shares : 0, avgPrice : 0 }
 };
-let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, Missoni: 45.67, Tiffany: 70.63 };
+let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, Missoni: 317.67, Tiffany: 271.63 };
 
 let liveInterval = null; //for live updates
 
