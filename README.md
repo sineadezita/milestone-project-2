@@ -93,3 +93,85 @@ A web-based stock trading simulation game where you invest in luxury fashion bra
 - **Font Awesome** - Social media icons
 
 ## Code
+
+### 1. **HTML ('index.html')**
+- Contains **landing page** with title, instructions, start button and toggle for live prices when api connected.
+- Defines the **game area** with two cards:
+    - **Market** Displays stocks with live updating prices.
+    - **Portfolio** Shows balance, purchased stocks, profit/loss.
+- Includes a **footer** with copyright and social links.
+- Uses [Bootstrap](https://getbootstrap.com/) for responsiveness and [Font Awesome](https://fontawesome.com/) for icons.
+
+### 2. **CSS ('style.css')**
+- Provides a **consistent design theme** (pastel pinks, neutral tones, rounded cards)
+- **Styles Include:**
+    - Cards for market and portfolio.
+    - Buttons for buy/sell with hover effects.
+    - Portfolio items styled to match market cards.
+- **Responsive behaviour**
+    - On **mobile**, buy/sell buttons stack and profit/loss text shrinks slightly.
+    - On **tablet/desktop**, elements align side by side.
+
+### 3. **Javascript ('script.js')**
+Controls the **game logic and interactivity**
+
+### State Variables
+- 'balance', 'portfolio, 'stocks': Track player's money, owned stocks, and stock prices.
+- 'currentLevel', 'startingBalance': Manage levels and progression.
+
+### Core Functions
+- 'renderStocks()': Builds the stock list dynamically with Buy\Sell buttons.
+- 'updatePortfolio()': Updates balance, calculates profit/loss and renders holdings.
+- 'buyStock()' / 'sellStock': Update holdings and balance.
+- 'updatePrices()': Randomly adjusts stock prices every interval.
+- 'checkLevelUp()': Unlocks Level 2 when portfolio grows by **=6%**.
+
+### Live Prices
+- Implemented with 'setInterval' to refresh stock values every **5 seconds** when enabled.
+
+### References
+- [MDN Web Docs - Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- [Font Awesome Docs](https://fontawesome.com/)
+
+## Deployment
+
+### Steps for Deployment
+1. Log in to [Github](https://github.com/)
+2. Navigate to the **Settings** tab.
+3. In the left-hand menu, select **Pages**.
+4. Under **Sources**, choose the 'main' branch and set folder to '/root'.
+5. Click **Save**
+6. The page will automatically refresh, and after a few minutes, your site will be live at'https://<your-username>.github.io/<repositiory-name>/'
+
+##Testing
+
+### Manual Testing
+
+The project was tested manually in the following ways:
+
+- **Navigation Bar**
+    - All links are clickable and responsive on desktop and mobile.
+
+- **Landing Page**
+    - The title, subtitle, and instructions display clearly across all screen sizes.
+
+- **Start Buttons**
+    - Hides the landing page and displays the game section as expected.
+
+- **Market Section**
+    - Stocks display with buy/sell buttons.
+    - Prices update every 5 seconds when "Live Prices" toggle is enabled.
+
+ - **Portfolio Section**
+    - Balance updates correctly after buying/selling.
+    - Profit/Loss is calculated and color-coded (green = gain, red = loss).
+    - Total portfolio value displays at the bottom.
+
+- **Level Up**
+    - When the portfolio grows by +6%, Level 2 unlocks with €20,000 starting balance and new stock options.
+
+- **Footer**
+    -Social icons link correctly to external sites.
+    
+

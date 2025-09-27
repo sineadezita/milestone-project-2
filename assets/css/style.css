@@ -31,7 +31,15 @@ main {
 
 /* Landing */   
 #landing {
-    padding: 5rem 2rem 2rem;
+    padding: 3% 2rem 2rem;
+}
+
+#landing .game-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+    color: #4a2c2a;
+    font-weight: bold;
 }
 
 #landing h1 {
@@ -50,7 +58,7 @@ main {
     color: #555;
     line-height: 1.5;
     text-align: center;
-    white-space: noraml;
+    white-space: normal;
 }
 
 #landing p.note {
@@ -157,7 +165,7 @@ main {
 /* Card headings */
 .card h2 {
     font-size: 1.6rem;
-    margin-bottom: 1 rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -174,6 +182,9 @@ main {
     background: white;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    /* Uniform sizing */
+    min-height: 80px;
 }
 
 .stock div {
@@ -238,7 +249,7 @@ button.sell:hover {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1 rem;
+    gap: 1rem;
 }
 
 #portfolio li {
@@ -246,11 +257,13 @@ button.sell:hover {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.2rem;
-    margin: 0rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     font-size: 1rem;
+
+    /* Match stock card height */
+    min-width: 80px;
 }
 
 /* Value badge inside portfolio */
