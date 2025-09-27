@@ -31,15 +31,22 @@ main {
 
 /* Landing */   
 #landing {
-    padding: 3% 2rem 2rem;
+    padding: 4rem 2rem 2rem;
 }
 
 #landing .game-title {
     font-size: 2.5rem;
-    margin-bottom: 0.2rem;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
     color: #4a2c2a;
     font-weight: bold;
+}
+
+/* On tablets and larger screens, add more spacing below nav */
+@media (min-width: 768px) {
+    #landing {
+        padding: 6rem 2rem 2rem;
+    }
 }
 
 #landing h1 {
