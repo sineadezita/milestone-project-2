@@ -236,17 +236,21 @@ button.sell:hover {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1 rem;
 }
 
 #portfolio li {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem 1.2rem;
-    margin: 0.5rem 0;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    margin: 0rem;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 1rem;
 }
 
 /* Value badge inside portfolio */
@@ -257,6 +261,12 @@ button.sell:hover {
     border-radius: 999px;
     font-weight: bold;
     font-size: 0.9rem;
+}
+
+/* Profit/Loss text inside portfolio */
+#portfolio li span.pl {
+    font-weight: bold;
+    margin-left: 0.8rem;
 }
 
 /* Footer */
