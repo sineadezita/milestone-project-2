@@ -173,5 +173,15 @@ The project was tested manually in the following ways:
 
 - **Footer**
     -Social icons link correctly to external sites.
-    
+
+### Responsive Testing
+
+Tested on multiple devices and screen sizes:
+
+- **Mobile**
+    - Buy/Sell buttons stack
+    - Profit/Loss test shrinks for readability.
+
+- **Tablet/Desktop**
+    - Layout displays side-by-side with no overlap.
 
