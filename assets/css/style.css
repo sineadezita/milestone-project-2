@@ -176,6 +176,12 @@ main {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+.stock div {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
 button.buy, button.sell {
     border: none;
     padding: 0.6rem 1.4rem;
@@ -184,7 +190,6 @@ button.buy, button.sell {
     font-weight: bold;
     font-size: 1rem;
     transition: all 0.2s ease;
-    margin-left: 0.5rem;
 }
 
 /* Buy button */
@@ -205,6 +210,20 @@ button.sell {
 
 button.sell:hover {
     background: #f2bcbc;
+}
+
+/* Mobile stack buttons */
+@media (max-width: 600px) {
+    .stock div {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .stock button {
+        width: 100%;
+        padding: 0.7rem 1 rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* Portfolio list */
