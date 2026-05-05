@@ -11,11 +11,7 @@ body {
     flex-direction: column;
 }
 
-main {
-    flex: 1;
-}
-
-.hidder {
+.hidden {
     display: none !important;
 }
 
@@ -99,7 +95,7 @@ main {
     transition: background 0.3s;
 }
 
-#start.btn:hover {
+#start-btn:hover {
     background: #f76d6b;
     color: white;
 }
@@ -151,6 +147,7 @@ main {
 
 /* Game Layout */
 main {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -239,7 +236,7 @@ button.sell:hover {
 
     .stock button {
         width: 100%;
-        padding: 0.7rem 1 rem;
+        padding: 0.7rem 1rem;
         font-size: 0.95rem;
     }
 }
@@ -323,7 +320,7 @@ footer p {
 
 #social-network li a, #social-networks li a i {
     color: #fff;
-    font-family: 1.6rem;
+    font-size: 1.6rem;
     transition: color 0.3s ease;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
