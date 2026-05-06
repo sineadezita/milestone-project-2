@@ -1,126 +1,165 @@
 /* Reset and Base */
 
-body {
+:root {
+    --bg-color: #003153;
+    --card-color: #004a7c;
+    --accent-color: #c9a84c;
+    --text-color: #f0f4f8;
+    --text-muted: #a8bdd4;
+    --danger-color: #ff4d4d;
+    --success-color: #4caf82;
+    --footer-color: #002244;
+    --stock-bg: #00284a;
+    --navbar-bg: #002244;
+ }
+ 
+ body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #fff6f3;
-    color: #4a2c2a;
+    font-family: 'Georgia', serif;
+    background: var(--bg-color);
+    color: var(--text-color);
     text-align: center;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-.hidden {
+ }
+ 
+ .hidden {
     display: none !important;
-}
-
-/* Navigation */
-.navbar-brand {
+ }
+ 
+ /* Navigation */
+ .navbar {
+    background: var(--navbar-bg) !important;
+    border-bottom: 1px solid var(--accent-color);
+ }
+ 
+ .navbar-brand {
     font-size: 1.4rem;
-    color: #4a2c2a !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #f76d6b !important;
-}
-
-/* Landing */   
-#landing {
+    color: var(--accent-color) !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+ }
+ 
+ .navbar-nav .nav-link {
+    color: var(--text-color) !important;
+ }
+ 
+ .navbar-nav .nav-link:hover {
+    color: var(--accent-color) !important;
+ }
+ 
+ .navbar-toggler {
+    border-color: var(--accent-color);
+ }
+ 
+ .navbar-toggler-icon {
+    filter: invert(1);
+ }
+ 
+ /* Landing */
+ #landing {
     padding: 4rem 2rem 2rem;
-}
-
-#landing .game-title {
+ }
+ 
+ #landing .game-title {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     margin-top: 0;
-    color: #4a2c2a;
+    color: var(--accent-color);
     font-weight: bold;
-}
-
-/* On tablets and larger screens, add more spacing below nav */
-@media (min-width: 768px) {
+ }
+ 
+ /* On tablets and larger screens, add more spacing below nav */
+ @media (min-width: 768px) {
     #landing {
         padding: 6rem 2rem 2rem;
     }
-}
-
-#landing h1 {
+ }
+ 
+ #landing h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-}
-
-#landing h2 {
+    color: var(--accent-color);
+ }
+ 
+ #landing h2 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-}
-
-#landing p {
+    color: var(--text-color);
+ }
+ 
+ #landing p {
     margin: 1rem auto;
     font-size: 1rem;
-    color: #555;
+    color: var(--text-muted);
     line-height: 1.5;
     text-align: center;
     white-space: normal;
-}
-
-#landing p.note {
+ }
+ 
+ #landing p.note {
     font-size: 0.9rem;
-    color: #777;
-}
-
-@media (min-width: 768px) {
+    color: var(--text-muted);
+ }
+ 
+ @media (min-width: 768px) {
     #landing p, #landing p.note {
         max-width: none;
         display: block;
         white-space: nowrap;
         text-align: center;
     }
-}
-
-.controls {
+ }
+ 
+ .controls {
     margin: 1rem 0;
     display: flex;
     justify-content: center;
     gap: 1rem;
-}
-
-#start-btn {
-    background: #f7d3d3;
+    align-items: center;
+ }
+ 
+ #start-btn {
+    background: var(--accent-color);
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    color: var(--navbar-bg);
     transition: background 0.3s;
-}
-
-#start-btn:hover {
-    background: #f76d6b;
-    color: white;
-}
-
-/* Toggle switch */
-.toggle {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+ }
+ 
+ #start-btn:hover {
+    background: #e0bc6a;
+    color: var(--navbar-bg);
+ }
+ 
+ /* Toggle switch */
+ .toggle {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.toggle input {
+    color: var(--text-color);
+ }
+ 
+ .toggle input {
     display: none;
-}
-
-.toggle .slider {
+ }
+ 
+ .toggle .slider {
     width: 40px;
     height: 20px;
     background: #ccc;
     border-radius: 20px;
     position: relative;
     cursor: pointer;
-}
-
-.toggle .slider::before {
+ }
+ 
+ .toggle .slider::before {
     content: "";
     position: absolute;
     width: 18px;
@@ -130,23 +169,23 @@ body {
     top: 1px;
     left: 1px;
     transition: 0.3s;
-}
-
-.toggle input:checked + .slider::before {
+ }
+ 
+ .toggle input:checked + .slider::before {
     transform: translateX(20px);
-}
-
-.toggle input:checked + .slider {
-    background: #a6e3a1;
-}
-
-.note {
+ }
+ 
+ .toggle input:checked + .slider {
+    background: var(--success-color);
+ }
+ 
+ .note {
     font-size: 0.8rem;
-    color: #777;
-}
-
-/* Game Layout */
-main {
+    color: var(--text-muted);
+ }
+ 
+ /* Game Layout */
+ main {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -154,50 +193,50 @@ main {
     gap: 2rem;
     padding: 2rem;
     flex-wrap: wrap;
-}
-
-.card {
-    background: #fdeef1;
+ }
+ 
+ .card {
+    background: var(--card-color);
     border-radius: 20px;
     padding: 2rem;
     flex: 1 1 320px;
     max-width: 450px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     text-align: left;
-}
-
-/* Card headings */
-.card h2 {
+    border: 1px solid rgba(201, 168, 76, 0.2);
+ }
+ 
+ /* Card headings */
+ .card h2 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: #4a2c2a;
-}
-
-/* Stocks */
-.stock {
+    color: var(--accent-color);
+ }
+ 
+ /* Stocks */
+ .stock {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
     padding: 1rem 1.2rem;
-    background: white;
+    background: var(--stock-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-
-    /* Uniform sizing */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     min-height: 80px;
-}
-
-.stock div {
+    color: var(--text-color);
+ }
+ 
+ .stock div {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
-}
-
-button.buy, button.sell {
+ }
+ 
+ button.buy, button.sell {
     border: none;
     padding: 0.6rem 1.4rem;
     border-radius: 999px;
@@ -205,129 +244,136 @@ button.buy, button.sell {
     font-weight: bold;
     font-size: 1rem;
     transition: all 0.2s ease;
-}
-
-/* Buy button */
-button.buy {
-    background: #d7f0e0;
-    color: #2d5a2d;
-}
-
-button.buy:hover{
-    background: #bfe7cc;
-}
-
-/* Sell button */
-button.sell {
-    background: #f7d3d3;
-    color: #7a2a2a;
-}
-
-button.sell:hover {
-    background: #f2bcbc;
-}
-
-/* Mobile stack buttons */
-@media (max-width: 600px) {
+ }
+ 
+ /* Buy button */
+ button.buy {
+    background: #1a3d2b;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+ }
+ 
+ button.buy:hover {
+    background: var(--success-color);
+    color: #fff;
+ }
+ 
+ /* Sell button */
+ button.sell {
+    background: #3d1a1a;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+ }
+ 
+ button.sell:hover {
+    background: var(--danger-color);
+    color: #fff;
+ }
+ 
+ /* Mobile stack buttons */
+ @media (max-width: 600px) {
     .stock div {
         flex-direction: column;
         gap: 0.8rem;
     }
-
+ 
     .stock button {
         width: 100%;
         padding: 0.7rem 1rem;
         font-size: 0.95rem;
     }
-}
-
-/* Portfolio list */
-#portfolio p {
+ }
+ 
+ /* Portfolio list */
+ #portfolio p {
     margin-bottom: 1rem;
     font-size: 1rem;
-}
-
-#portfolio ul {
+    color: var(--text-color);
+ }
+ 
+ #portfolio ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-#portfolio li {
+ }
+ 
+ #portfolio li {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.2rem;
-    background: #fff;
+    background: var(--stock-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     font-size: 1rem;
-
-    /* Match stock card height */
     min-width: 80px;
-}
-
-/* Value badge inside portfolio */
-#portfolio li span.value {
-    background: #fde6eb;
-    color:#4a2c2a;
+    color: var(--text-color);
+ }
+ 
+ /* Value badge inside portfolio */
+ #portfolio li span.value {
+    background: rgba(201, 168, 76, 0.2);
+    color: var(--accent-color);
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
     font-weight: bold;
     font-size: 0.9rem;
-}
-
-/* Profit/Loss text inside portfolio */
-#portfolio li span.pl {
+    border: 1px solid var(--accent-color);
+ }
+ 
+ /* Profit/Loss text inside portfolio */
+ #portfolio li span.pl {
     font-weight: bold;
     margin-left: 0.8rem;
-}
-
-/* Footer */
-footer {
-    background: #fde6eb;
-    color: #fff;
+ }
+ 
+ /* Footer */
+ footer {
+    background: var(--footer-color);
+    color: var(--text-muted);
     padding: 1rem 0;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-}
-
-.footer-content {
+    border-top: 1px solid var(--accent-color);
+    margin-top: auto;
+ }
+ 
+ .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Text */
-footer p {
+ }
+ 
+ /* Text */
+ footer p {
     margin: 0;
-}
-
-/* Social Networks */
-#social-networks {
+    color: var(--text-muted);
+ }
+ 
+ /* Social Networks */
+ #social-networks {
     display: flex;
     gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-#social-network li a, #social-networks li a i {
-    color: #fff;
+ }
+ 
+ #social-network li a, #social-networks li a i {
+    color: var(--text-muted);
     font-size: 1.6rem;
-    transition: color 0.3s ease;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
-}
-
-#social-networks li a:hover,
-#social-networks li a:hover i {
-    color: #f7d3d3;
+ }
+ 
+ #social-networks li a:hover,
+ #social-networks li a:hover i {
+    color: var(--accent-color);
     transform: scale(1.2);
-}
+ }
