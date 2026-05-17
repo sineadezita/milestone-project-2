@@ -1,16 +1,17 @@
 /* Reset and Base */
 
 :root {
-    --bg-color: #003153;
-    --card-color: #004a7c;
+    --bg-color: #002244;
+    --card-color: #003d6b;
     --accent-color: #c9a84c;
     --text-color: #f0f4f8;
     --text-muted: #a8bdd4;
-    --danger-color: #ff4d4d;
-    --success-color: #4caf82;
-    --footer-color: #002244;
-    --stock-bg: #00284a;
-    --navbar-bg: #002244;
+    --text-dark: #003153;
+    --danger-color: #cc0000;
+    --success-color: #2d7a4f;
+    --footer-color: #001833;
+    --stock-bg: #f8fafc;
+    --navbar-bg: #001833;
  }
  
  body {
@@ -31,15 +32,19 @@
  /* Navigation */
  .navbar {
     background: var(--navbar-bg) !important;
-    border-bottom: 1px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
  }
  
  .navbar-brand {
     font-size: 1.4rem;
-    color: var(--accent-color) !important;
+    color: var(--text-color) !important;
     font-weight: bold;
     letter-spacing: 1px;
  }
+
+ .navbar .navbar-brand { 
+   color: var(--text-color) !important; 
+}
  
  .navbar-nav .nav-link {
     color: var(--text-color) !important;
@@ -143,7 +148,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--text-color);
+    color: var(--text-muted) !important;
  }
  
  .toggle input {
@@ -196,14 +201,14 @@
  }
  
  .card {
-    background: var(--card-color);
+    background: var(--card-color) !important;
     border-radius: 20px;
     padding: 2rem;
     flex: 1 1 320px;
     max-width: 450px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     text-align: left;
-    border: 1px solid rgba(201, 168, 76, 0.2);
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
  }
  
  /* Card headings */
@@ -225,9 +230,9 @@
     padding: 1rem 1.2rem;
     background: var(--stock-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     min-height: 80px;
-    color: var(--text-color);
+    color: var(--text-dark);
  }
  
  .stock div {
@@ -248,9 +253,9 @@
  
  /* Buy button */
  button.buy {
-    background: #1a3d2b;
+    background: #d4edda;
     color: var(--success-color);
-    border: 1px solid var(--success-color);
+    border: 2px solid var(--success-color);
  }
  
  button.buy:hover {
@@ -260,9 +265,9 @@
  
  /* Sell button */
  button.sell {
-    background: #3d1a1a;
+    background: #f8d7da;
     color: var(--danger-color);
-    border: 1px solid var(--danger-color);
+    border: 2px solid var(--danger-color);
  }
  
  button.sell:hover {
@@ -288,7 +293,8 @@
  #portfolio p {
     margin-bottom: 1rem;
     font-size: 1rem;
-    color: var(--text-color);
+    color: var(--accent-color);
+    font-weight: bold;
  }
  
  #portfolio ul {
@@ -307,16 +313,16 @@
     padding: 1rem 1.2rem;
     background: var(--stock-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     font-size: 1rem;
     min-width: 80px;
-    color: var(--text-color);
+    color: var(--text-dark);
  }
  
  /* Value badge inside portfolio */
  #portfolio li span.value {
-    background: rgba(201, 168, 76, 0.2);
-    color: var(--accent-color);
+    background: rgba(201, 168, 76, 0.15);
+    color: var(--text-dark);
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
     font-weight: bold;
@@ -337,7 +343,7 @@
     padding: 1rem 0;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
-    border-top: 1px solid var(--accent-color);
+    border-top: 2px solid var(--accent-color);
     margin-top: auto;
  }
  
@@ -365,8 +371,8 @@
     padding: 0;
  }
  
- #social-network li a, #social-networks li a i {
-    color: var(--text-muted);
+ #social-networks li a, #social-networks li a i {
+    color: var(--text-muted) !important;
     font-size: 1.6rem;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
