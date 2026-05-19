@@ -1,111 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" 
-    content="default-src 'self'; script-src 'self' cdn.jsdelivr.net kit.fontawesome.com 'unsafe-inline'; style-src 'self' cdn.jsdelivr.net kit.fontawesome.com 'unsafe-inline'; font-src ka-f.fontawesome.com fonts.gstatic.com; connect-src ka-f.fontawesome.com">
-    <title>Fashion Stock Picker</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Security-Policy" 
+   content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://kit.fontawesome.com 'unsafe-inline'; style-src 'self' https://cdn.jsdelivr.net https://ka-f.fontawesome.com 'unsafe-inline'; font-src https://ka-f.fontawesome.com https://fonts.gstatic.com; connect-src https://ka-f.fontawesome.com">
+   <title>Fashion Stock Picker</title>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+   integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Font Awesome Kit -->
-    <script src="https://kit.fontawesome.com/8085e6eb5a.js" crossorigin="anonymous"></script>
+   <!-- Font Awesome Kit -->
+   <script src="https://kit.fontawesome.com/8085e6eb5a.js" crossorigin="anonymous"></script>
 
-    <!-- Favicon -->
-     <link rel="icon" type="image/png" href="assets/images/favicon_io/apple-touch-icon.png">
-     <link rel="icon" type="image/x-icon" href="assets/images/favicon_io/favicon.ico">
+   <!-- Favicon -->
+   <link rel="icon" type="image/png" href="assets/images/favicon_io/apple-touch-icon.png">
+   <link rel="icon" type="image/x-icon" href="assets/images/favicon_io/favicon.ico">
 
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
-        <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand fw-bold text-dark" href="#">Fashion Stock Picker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-            aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#landing">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#market">Market</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+   <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+       <div class="container">
+           <!-- Logo -->
+           <a class="navbar-brand fw-bold text-dark" href="index.html">Fashion Stock Picker</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+           aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navMenu">
+               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                   <li class="nav-item"><a class="nav-link" href="#landing">Home</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#market">Market</a></li>
+                   <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+               </ul>
+           </div>
+       </div>
+   </nav>
 
-    <!-- Landing Page -->
-    <section id="landing" class="text-center">
-        <h1 class="game-subtitle">Can you beat the luxury market?</h1>
-        <p class="game-intro">
-            Start with €10,000. Buy and sell luxury fashion stocks to grow your portfolio.</p>
-        <p class="note">
-            Grow your portfolio by +6% to unlock Level 2 with €20,000 to invest!</p>
-        <div class="controls">
-            <button id="start-btn">Start Game</button>
+   <!-- Landing Page -->
+   <section id="landing" class="text-center">
+       <h1 class="game-subtitle">Can you beat the luxury market?</h1>
+       <p class="game-intro">
+           Start with €10,000. Buy and sell luxury fashion stocks to grow your portfolio.</p>
+       <p class="note">
+           Grow your portfolio by +6% to unlock Level 2 with €20,000 to invest!</p>
+       <div class="controls">
+           <button id="start-btn">Start Game</button>
 
-            <!-- Toggle for live prices -->
-            <label class="toggle">
-                <input type="checkbox" id="live-toggle">
-                <span class="slider"></span> 
-                Live Prices
-            </label>
-        </div>
-    </section>
+           <!-- Toggle for live prices -->
+           <label class="toggle">
+               <input type="checkbox" id="live-toggle">
+               <span class="slider"></span> 
+               Live Prices
+           </label>
+       </div>
+   </section>
 
-    <!-- Game Section -->
-    <main id="game" class="hidden">
-        
-        <!-- Market -->
-        <section class="card" id="market">
-            <h2>Market</h2>
-            <div id="stock-list"></div>
-        </section>
-    
-        <!-- Portfolio -->
-        <section class="card" id="portfolio">
-            <h2>Portfolio</h2>
-            <p><strong>Balance:</strong> €<span id="balance">10000</span></p>
-            <ul id="holdings"></ul>
-        </section>
-    </main>
+   <!-- Game Section -->
+   <main id="game" class="hidden">
 
-    <!-- Footer -->
-     <footer>
-        <div class="footer-content container">
-            <p>&copy; 2025 Fashion Stock Picker</p>
-            <ul id="social-networks">
-                <li>
-                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-pinterest"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-     </footer>
+       <!-- Market -->
+       <section class="card" id="market">
+           <h2>Market</h2>
+           <div id="stock-list"></div>
+       </section>
 
-    <!-- Javascript -->
-    <script src="assets/js/script.js"></script>
+       <!-- Portfolio -->
+       <section class="card" id="portfolio">
+           <h2>Portfolio</h2>
+           <p><strong>Balance:</strong> €<span id="balance">10000</span></p>
+           <ul id="holdings"></ul>
+       </section>
+   </main>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   <!-- Footer -->
+   <footer>
+       <div class="footer-content container">
+           <p>&copy; 2026 Fashion Stock Picker</p>
+           <ul id="social-networks">
+               <li>
+                   <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                       <i class="fa-brands fa-instagram"></i>
+                   </a>
+               </li>
+               <li>
+                   <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer">
+                       <i class="fa-brands fa-pinterest"></i>
+                   </a>
+               </li>
+               <li>
+                   <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+                       <i class="fa-brands fa-youtube"></i>
+                   </a>
+               </li>
+           </ul>
+       </div>
+   </footer>
+
+   <!-- Javascript -->
+   <script src="assets/js/script.js"></script>
+
+   <!-- Bootstrap JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
