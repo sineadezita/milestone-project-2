@@ -224,6 +224,19 @@ main {
    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
    min-height: 80px;
    color: var(--text-dark);
+   gap: 1rem;
+}
+
+.stock span {
+   flex: 1;
+   text-align: left;
+   font-weight: bold;
+}
+
+.stock div {
+   display: flex;
+   gap: 0.5rem;
+   flex-shrink: 0;
 }
 
 .stock div {
@@ -234,13 +247,14 @@ main {
 
 button.buy, button.sell {
    border: none;
-   padding: 0.6rem 1.4rem;
+   padding: 0.4rem 0.9rem;
    border-radius: 999px;
    cursor: pointer;
    font-weight: bold;
-   font-size: 1rem;
+   font-size: 0.85rem;
    transition: all 0.2s ease;
 }
+
 
 /* Buy button */
 button.buy {
@@ -408,23 +422,25 @@ footer p {
 
    /* Stock rows stack on mobile */
    .stock {
-       flex-direction: column;
-       align-items: flex-start;
-       gap: 0.8rem;
-       min-height: auto;
+       flex-direction: row;
+       align-items: center;
+       justify-content: space-between;
+       gap: 0.5rem;
+       min-height: 60px;
    }
 
    /* Buy/Sell buttons side by side on mobile */
    .stock div {
        flex-direction: row;
-       width: 100%;
-       justify-content: space-between;
+       width: auto;
+       justify-content: flex-end;
+       gap: 0.4rem;
    }
 
    .stock button {
-       flex: 1;
-       padding: 0.7rem 1rem;
-       font-size: 0.95rem;
+       flex: 0;
+       padding: 0.4rem 0.9rem;
+       font-size: 0.85rem;
    }
 
    /* Portfolio items wrap on mobile */
