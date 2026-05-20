@@ -1,385 +1,451 @@
 /* Reset and Base */
 
 :root {
-    --bg-color: #002244;
-    --card-color: #003d6b;
-    --accent-color: #c9a84c;
-    --text-color: #f0f4f8;
-    --text-muted: #a8bdd4;
-    --text-dark: #003153;
-    --danger-color: #cc0000;
-    --success-color: #2d7a4f;
-    --footer-color: #001833;
-    --stock-bg: #f8fafc;
-    --navbar-bg: #001833;
- }
- 
- body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    background: var(--bg-color);
-    color: var(--text-color);
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
- }
- 
- .hidden {
-    display: none !important;
- }
- 
- /* Navigation */
- .navbar {
-    background: var(--navbar-bg) !important;
-    border-bottom: 2px solid var(--accent-color);
- }
- 
- .navbar-brand {
-    font-size: 1.4rem;
-    color: var(--text-color) !important;
-    font-weight: bold;
-    letter-spacing: 1px;
- }
-
- .navbar .navbar-brand { 
-   color: var(--text-color) !important; 
+   --bg-color: #002244;
+   --card-color: #003d6b;
+   --accent-color: #c9a84c;
+   --text-color: #f0f4f8;
+   --text-muted: #a8bdd4;
+   --text-dark: #003153;
+   --danger-color: #cc0000;
+   --success-color: #2d7a4f;
+   --footer-color: #001833;
+   --stock-bg: #f8fafc;
+   --navbar-bg: #001833;
 }
- 
- .navbar-nav .nav-link {
-    color: var(--text-color) !important;
- }
- 
- .navbar-nav .nav-link:hover {
-    color: var(--accent-color) !important;
- }
+
+body {
+   margin: 0;
+   font-family: 'Georgia', serif;
+   background: var(--bg-color) !important;
+   color: var(--text-color);
+   text-align: center;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.hidden {
+   display: none !important;
+}
+
+/* Navigation */
+.navbar {
+   background: var(--navbar-bg) !important;
+   border-bottom: 2px solid var(--accent-color);
+}
+
+.navbar-brand {
+   font-size: 1.4rem;
+   color: var(--text-color) !important;
+   font-weight: bold;
+   letter-spacing: 1px;
+}
+
+.navbar .navbar-brand {
+   color: var(--text-color) !important;
+}
+
+.navbar-nav .nav-link {
+   color: var(--text-color) !important;
+}
+
+.navbar-nav .nav-link:hover {
+   color: var(--accent-color) !important;
+}
 
 .navbar-toggler {
    border: 2px solid var(--accent-color) !important;
 }
- 
- /* Landing */
- #landing {
-    padding: 4rem 2rem 2rem;
- }
- 
- #landing .game-title {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0;
-    color: var(--accent-color);
-    font-weight: bold;
- }
- 
- /* On tablets and larger screens, add more spacing below nav */
- @media (min-width: 768px) {
-    #landing {
-        padding: 6rem 2rem 2rem;
-    }
- }
- 
- #landing h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent-color);
- }
- 
- #landing h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
- }
- 
- #landing p {
-    margin: 1rem auto;
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    text-align: center;
-    white-space: normal;
- }
- 
- #landing p.note {
-    font-size: 0.9rem;
-    color: var(--text-muted);
- }
- 
- @media (min-width: 768px) {
-    #landing p, #landing p.note {
-        max-width: none;
-        display: block;
-        white-space: nowrap;
-        text-align: center;
-    }
- }
- 
- .controls {
-    margin: 1rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
- }
- 
- #start-btn {
-    background: var(--accent-color);
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--navbar-bg);
-    transition: background 0.3s;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
- }
- 
- #start-btn:hover {
-    background: #e0bc6a;
-    color: var(--navbar-bg);
- }
- 
- /* Toggle switch */
- .toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-muted) !important;
- }
- 
- .toggle input {
-    display: none;
- }
- 
- .toggle .slider {
-    width: 40px;
-    height: 20px;
-    background: #ccc;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
- }
- 
- .toggle .slider::before {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background: white;
-    border-radius: 50%;
-    top: 1px;
-    left: 1px;
-    transition: 0.3s;
- }
- 
- .toggle input:checked + .slider::before {
-    transform: translateX(20px);
- }
- 
- .toggle input:checked + .slider {
-    background: var(--success-color);
- }
- 
- .note {
-    font-size: 0.8rem;
-    color: var(--text-muted);
- }
- 
- /* Game Layout */
- main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 2rem;
-    flex-wrap: wrap;
- }
- 
- .card {
-    background: var(--card-color) !important;
-    border-radius: 20px;
-    padding: 2rem;
-    flex: 1 1 320px;
-    max-width: 450px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    text-align: left;
-    border: 1px solid rgba(201, 168, 76, 0.3) !important;
- }
- 
- /* Card headings */
- .card h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--accent-color);
- }
- 
- /* Stocks */
- .stock {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1rem 0;
-    padding: 1rem 1.2rem;
-    background: var(--stock-bg);
-    border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    min-height: 80px;
-    color: var(--text-dark);
- }
- 
- .stock div {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
- }
- 
- button.buy, button.sell {
-    border: none;
-    padding: 0.6rem 1.4rem;
-    border-radius: 999px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: all 0.2s ease;
- }
- 
- /* Buy button */
- button.buy {
-    background: #d4edda;
-    color: var(--success-color);
-    border: 2px solid var(--success-color);
- }
- 
- button.buy:hover {
-    background: var(--success-color);
-    color: #fff;
- }
- 
- /* Sell button */
- button.sell {
-    background: #f8d7da;
-    color: var(--danger-color);
-    border: 2px solid var(--danger-color);
- }
- 
- button.sell:hover {
-    background: var(--danger-color);
-    color: #fff;
- }
- 
-/* Mobile stack buttons */
+
+.navbar-toggler-icon {
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+   background-size: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   width: 1.5em;
+   height: 1.5em;
+   display: inline-block;
+}
+
+/* Landing */
+#landing {
+   padding: 4rem 2rem 2rem;
+}
+
+#landing .game-title {
+   font-size: 2.5rem;
+   margin-bottom: 0.5rem;
+   margin-top: 0;
+   color: var(--accent-color);
+   font-weight: bold;
+}
+
+#landing h1 {
+   font-size: 2rem;
+   margin-bottom: 0.5rem;
+   color: var(--accent-color);
+}
+
+#landing h2 {
+   font-size: 1.5rem;
+   margin-bottom: 0.5rem;
+   color: var(--text-color);
+}
+
+#landing p {
+   margin: 1rem auto;
+   font-size: 1rem;
+   color: var(--text-muted);
+   line-height: 1.5;
+   text-align: center;
+   white-space: normal;
+}
+
+#landing p.note {
+   font-size: 0.9rem;
+   color: var(--text-muted);
+}
+
+.controls {
+   margin: 1rem 0;
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+#start-btn {
+   background: var(--accent-color);
+   border: none;
+   padding: 0.8rem 1.5rem;
+   border-radius: 8px;
+   cursor: pointer;
+   font-weight: bold;
+   color: var(--navbar-bg);
+   transition: background 0.3s;
+   font-size: 1rem;
+   letter-spacing: 0.5px;
+}
+
+#start-btn:hover {
+   background: #e0bc6a;
+   color: var(--navbar-bg);
+}
+
+/* Toggle switch */
+.toggle {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   color: var(--text-muted) !important;
+}
+
+.toggle input {
+   display: none;
+}
+
+.toggle .slider {
+   width: 40px;
+   height: 20px;
+   background: #ccc;
+   border-radius: 20px;
+   position: relative;
+   cursor: pointer;
+}
+
+.toggle .slider::before {
+   content: "";
+   position: absolute;
+   width: 18px;
+   height: 18px;
+   background: white;
+   border-radius: 50%;
+   top: 1px;
+   left: 1px;
+   transition: 0.3s;
+}
+
+.toggle input:checked + .slider::before {
+   transform: translateX(20px);
+}
+
+.toggle input:checked + .slider {
+   background: var(--success-color);
+}
+
+.note {
+   font-size: 0.8rem;
+   color: var(--text-muted);
+}
+
+/* Game Layout */
+main {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 2rem;
+   padding: 2rem;
+   flex-wrap: wrap;
+}
+
+.card {
+   background: var(--card-color) !important;
+   border-radius: 20px;
+   padding: 2rem;
+   flex: 1 1 320px;
+   max-width: 450px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+   text-align: left;
+   border: 1px solid rgba(201, 168, 76, 0.3) !important;
+}
+
+/* Card headings */
+.card h2 {
+   font-size: 1.6rem;
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+   color: var(--accent-color);
+}
+
+/* Stocks */
+.stock {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 1rem 0;
+   padding: 1rem 1.2rem;
+   background: var(--stock-bg);
+   border-radius: 12px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   min-height: 80px;
+   color: var(--text-dark);
+}
+
+.stock div {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+}
+
+button.buy, button.sell {
+   border: none;
+   padding: 0.6rem 1.4rem;
+   border-radius: 999px;
+   cursor: pointer;
+   font-weight: bold;
+   font-size: 1rem;
+   transition: all 0.2s ease;
+}
+
+/* Buy button */
+button.buy {
+   background: #d4edda;
+   color: var(--success-color);
+   border: 2px solid var(--success-color);
+}
+
+button.buy:hover {
+   background: var(--success-color);
+   color: #fff;
+}
+
+/* Sell button */
+button.sell {
+   background: #f8d7da;
+   color: var(--danger-color);
+   border: 2px solid var(--danger-color);
+}
+
+button.sell:hover {
+   background: var(--danger-color);
+   color: #fff;
+}
+
+/* Portfolio list */
+#portfolio p {
+   margin-bottom: 1rem;
+   font-size: 1rem;
+   color: var(--accent-color);
+   font-weight: bold;
+}
+
+#portfolio ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+#portfolio li {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 1.2rem;
+   background: var(--stock-bg);
+   border-radius: 12px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   font-size: 1rem;
+   min-width: 80px;
+   color: var(--text-dark);
+}
+
+/* Value badge inside portfolio */
+#portfolio li span.value {
+   background: rgba(201, 168, 76, 0.15);
+   color: var(--text-dark);
+   padding: 0.3rem 0.8rem;
+   border-radius: 999px;
+   font-weight: bold;
+   font-size: 0.9rem;
+   border: 1px solid var(--accent-color);
+}
+
+/* Profit/Loss text inside portfolio */
+#portfolio li span.pl {
+   font-weight: bold;
+   margin-left: 0.8rem;
+}
+
+/* Footer */
+footer {
+   background: var(--footer-color);
+   color: var(--text-muted);
+   padding: 1rem 0;
+   font-size: 0.9rem;
+   letter-spacing: 0.5px;
+   border-top: 2px solid var(--accent-color);
+   margin-top: auto;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 1.5rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+footer p {
+   margin: 0;
+   color: var(--text-muted);
+}
+
+/* Social Networks */
+#social-networks {
+   display: flex;
+   gap: 1.5rem;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+#social-networks li a, #social-networks li a i {
+   color: var(--text-muted) !important;
+   font-size: 1.6rem;
+   text-decoration: none;
+   transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#social-networks li a:hover,
+#social-networks li a:hover i {
+   color: var(--accent-color);
+   transform: scale(1.2);
+}
+
+/* ========================
+  MEDIA QUERIES
+  ======================== */
+
+/* Tablets and larger (768px+) */
+@media (min-width: 768px) {
+   #landing {
+       padding: 6rem 2rem 2rem;
+   }
+
+   #landing p, #landing p.note {
+       max-width: none;
+       display: block;
+       white-space: nowrap;
+       text-align: center;
+   }
+}
+
+/* Mobile (max 600px) */
 @media (max-width: 600px) {
+
+   /* Landing */
+   #landing {
+       padding: 2rem 1rem;
+   }
+
+   #landing h1 {
+       font-size: 1.5rem;
+   }
+
+   #landing p {
+       font-size: 0.95rem;
+       white-space: normal;
+   }
+
+   /* Controls stack on small screens */
+   .controls {
+       flex-direction: column;
+       gap: 0.8rem;
+   }
+
+   /* Cards full width on mobile */
+   .card {
+       padding: 1.2rem;
+   }
+
+   /* Stock rows stack on mobile */
    .stock {
        flex-direction: column;
        align-items: flex-start;
+       gap: 0.8rem;
+       min-height: auto;
    }
+
+   /* Buy/Sell buttons side by side on mobile */
    .stock div {
        flex-direction: row;
        width: 100%;
        justify-content: space-between;
    }
+
    .stock button {
        flex: 1;
        padding: 0.7rem 1rem;
        font-size: 0.95rem;
    }
+
+   /* Portfolio items wrap on mobile */
+   #portfolio li {
+       flex-wrap: wrap;
+       gap: 0.5rem;
+       font-size: 0.9rem;
+   }
+
+   #portfolio li span.value {
+       font-size: 0.8rem;
+   }
+
+   #portfolio li span.pl {
+       margin-left: 0;
+   }
+
+   /* Footer stack on mobile */
+   .footer-content {
+       flex-direction: column;
+       gap: 1rem;
+       text-align: center;
+   }
 }
- 
- /* Portfolio list */
- #portfolio p {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    color: var(--accent-color);
-    font-weight: bold;
- }
- 
- #portfolio ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
- }
- 
- #portfolio li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.2rem;
-    background: var(--stock-bg);
-    border-radius: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-size: 1rem;
-    min-width: 80px;
-    color: var(--text-dark);
- }
- 
- /* Value badge inside portfolio */
- #portfolio li span.value {
-    background: rgba(201, 168, 76, 0.15);
-    color: var(--text-dark);
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    border: 1px solid var(--accent-color);
- }
- 
- /* Profit/Loss text inside portfolio */
- #portfolio li span.pl {
-    font-weight: bold;
-    margin-left: 0.8rem;
- }
- 
- /* Footer */
- footer {
-    background: var(--footer-color);
-    color: var(--text-muted);
-    padding: 1rem 0;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    border-top: 2px solid var(--accent-color);
-    margin-top: auto;
- }
- 
- .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
- }
- 
- /* Text */
- footer p {
-    margin: 0;
-    color: var(--text-muted);
- }
- 
- /* Social Networks */
- #social-networks {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
- }
- 
- #social-networks li a, #social-networks li a i {
-    color: var(--text-muted) !important;
-    font-size: 1.6rem;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
- }
- 
- #social-networks li a:hover,
- #social-networks li a:hover i {
-    color: var(--accent-color);
-    transform: scale(1.2);
- }

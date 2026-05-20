@@ -4,7 +4,7 @@ let balance = 10000;
 let startingBalance = 10000;
 let currentLevel = 1;
 
-let portfolio = {
+let portfolio = { 
    LVMH: { shares : 0, avgPrice : 0 },
    Prada: { shares : 0, avgPrice : 0 },
    Burberry: { shares : 0, avgPrice : 0 },
@@ -14,6 +14,19 @@ let portfolio = {
 let stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, Missoni: 317.67, Tiffany: 271.63 };
 
 let liveInterval = null; // for live updates
+
+// Rate limiting
+let lastActionTime = 0;
+const ACTION_COOLDOWN = 1000; // 1 second
+
+function isRateLimited() {
+   let now = Date.now();
+   if (now - lastActionTime < ACTION_COOLDOWN) {
+       return true;
+   }
+   lastActionTime = now;
+   return false;
+}
 
 // DOM Elements
 const gameSection = document.getElementById("game");
@@ -126,6 +139,10 @@ function updatePortfolio() {
 // Buy Stock
 /* exported buyStock */
 function buyStock(name) {
+   if (isRateLimited()) {
+       showNotification("Please wait before trading again!", "error");
+       return;
+   }
    let price = stocks[name];
    if (balance >= stocks[name]) {
        balance -= stocks[name];
@@ -149,6 +166,10 @@ function buyStock(name) {
 // Sell Stock
 /* exported sellStock */
 function sellStock(name) {
+   if (isRateLimited()) {
+       showNotification("Please wait before trading again!", "error");
+       return;
+   }
    let stockData = portfolio[name];
    if (stockData.shares > 0) {
        let price = stocks[name];
@@ -183,6 +204,27 @@ function updatePrices() {
 function startLiveMarket() {
    if (liveInterval) clearInterval(liveInterval);
    liveInterval = setInterval(updatePrices, 5000);
+}
+
+// Reset game to landing page
+/* exported resetGame */
+function resetGame() {
+   balance = 10000;
+   startingBalance = 10000;
+   currentLevel = 1;
+   portfolio = {
+       LVMH: { shares: 0, avgPrice: 0 },
+       Prada: { shares: 0, avgPrice: 0 },
+       Burberry: { shares: 0, avgPrice: 0 },
+       Missoni: { shares: 0, avgPrice: 0 },
+       Tiffany: { shares: 0, avgPrice: 0 }
+   };
+   stocks = { LVMH: 812.5, Prada: 116.2, Burberry: 235.4, Missoni: 317.67, Tiffany: 271.63 };
+   clearInterval(liveInterval);
+   liveToggle.checked = false;
+   gameSection.classList.add("hidden");
+   document.getElementById("landing").classList.remove("hidden");
+   window.scrollTo(0, 0);
 }
 
 // Level system
